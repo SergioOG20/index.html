@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        /* Estilos para la página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: grey;
+        }
+
+        /* Estilos para el carrito de compras */
+        .cart {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .cart h2 {
+            text-align: center;
+        }
+
+        .cart ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart li {
+            margin: 10px 0;
+        }
+
+        /* Estilos para el botón de compra */
+        #buy-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #f0941c;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            border-radius: 29px;
+        }
+
+        #buy-btn:hover {
+            background-color: #e9441b;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart">
+        <h2>Carrito de Compras</h2>
+        <ul id="selected-products">
+            <!-- Lista de productos seleccionados (vacía al principio) -->
+        </ul>
+        <button id="buy-btn" class="btn">Comprar</button>
+    </div>
+
+    <script>
+        // JavaScript para manejar la selección de productos y compra
+        const productList = document.getElementById('selected-products');
+        const buyButton = document.getElementById('buy-btn');
+
+        // Función para agregar un producto a la lista de seleccionados
+        function addProduct(productName, price) {
+            const productItem = document.createElement('li');
+            productItem.textContent = `${productName} - $${price.toFixed(2)}`;
+            productList.appendChild(productItem);
+        }
+
+        // Evento para agregar un producto cuando se hace clic en el botón
+        buyButton.addEventListener('click', function() {
+            // Simplemente para este ejemplo, podrías realizar la lógica de compra aquí
+            alert('Compra realizada. Gracias por su compra.');
+            // Limpia la lista de productos seleccionados
+            productList.innerHTML = '';
+        });
+
+        // Agregar productos de ejemplo
+        addProduct('Burger Premiun', 10.00);
+        addProduct('Burrito Premiun', 15.00);
+        addProduct('Combo Triple Pro Max', 20.00);
+    </script>
+</body>
+</html>
